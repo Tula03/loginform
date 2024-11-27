@@ -1,0 +1,84 @@
+<div style="width: 100%; max-width: 450px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+    <p-card header="Register" [style]="{width: '400px'}"> 
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+            <div class="field">
+                <label for="fullName">Full Name</label>
+                <input 
+                pInputText 
+                class="w-full" 
+                id="fullName" 
+                formControlName="fullName"/>
+                @if(fullName.invalid && (fullName.dirty || fullName.touched)){
+                    <small class="block p-error">Full Name is Required</small>
+                }
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input 
+                pInputText 
+                class="w-full" 
+                id="email" 
+                formControlName="email"/>
+                @if(email.invalid && (email.dirty || email.touched)){
+                    <small class="block p-error">
+                        @if(email.hasError('required')){
+                            <span>Email is Required</span>
+                        } @else if (email.hasError('pattern')){
+                            <span>Email is Invalid</span>
+                        }
+                    </small>
+                }
+            </div>
+            <div class="field">
+                <label for="number">Phone Number</label>
+                <input 
+                pInputText 
+                class="w-full" 
+                id="number" 
+                formControlName="number"/>
+                @if (number.invalid && (number.dirty || number.touched)) { 
+                    <small class="block p-error">Number is Required</small>
+                }
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <p-password 
+                [feedback]="false"
+                [toggleMask]="true"
+                styleClass="w-full" 
+                inputStyleClass="w-full"
+                inputId="password" 
+                formControlName="password"/>
+                @if (password.invalid && (password.dirty || password.touched)) { 
+                    <small class="block p-error">Pasword is Required</small>
+                }
+            </div>
+            <div class="field">
+                <label for="confirmpassword">Confirm Password</label>
+                <p-password 
+                [feedback]="false"
+                [toggleMask]="true"
+                styleClass="w-full" 
+                inputStyleClass="w-full"
+                inputId="confirmpassword" 
+                formControlName="confirmpassword"/>
+                @if (confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)) { 
+                    <small class="block p-error">Confirm Pasword is Required</small>
+                }
+
+                @if (registerForm.hasError('passwordMismatch') && password.valid && confirmpassword.valid){
+                    <small class="block p-error">Pasword mismatch</small>
+                }
+            </div>
+            <p-button 
+            type="submit" 
+            styleClass="w-full" 
+            label="Register" 
+            [disabled]="registerForm.invalid"></p-button>
+        </form>
+    </p-card>
+    <div style="margin-top: 16px; text-align: center; border-top: 1px solid #ddd; padding-top: 12px;">
+        Already a member? 
+        <a routerLink="/login" style="color: blue; text-decoration: underline; margin-left: 4px;">LogIn</a>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+p-card {
+  max-width: 100%; 
+}
+
+
+@media (max-width: 768px) { 
+  p-card {
+    width: 90%; 
+    margin: auto; 
+  }
+
+  form {
+    padding: 10px; 
+  }
+
+  .field {
+    margin-bottom: 12px; 
+  }
+
+  p-button {
+    width: 100%; 
+  }
+
+  a {
+    font-size: 14px; 
+  }
+}
+
+@media (max-width: 480px) { 
+  p-card {
+    width: 95%; 
+  }
+
+  label {
+    font-size: 14px; 
+  }
+
+  input,
+  p-password {
+    font-size: 14px; 
+  }
+}

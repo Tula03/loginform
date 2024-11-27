@@ -1,0 +1,65 @@
+/* Default styles for desktop */
+p-card {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  .field {
+    margin-bottom: 1rem;
+  }
+  
+  p-button {
+    width: 100%;
+  }
+  
+
+  @media (max-width: 900px) {
+    p-card {
+      width: 80%;
+    }
+  
+    input, p-password {
+      width: 100%;
+    }
+
+    label {
+      font-size: 14px;
+    }
+  }
+  
+  /* For mobile screens */
+  @media (max-width: 600px) {
+    p-card {
+      width: 90%;
+    }
+
+    input, p-password {
+      width: 100%;
+    }
+
+    p-button {
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .field label {
+      font-size: 14px;
+    }
+
+    .field {
+      width: 100%;
+    }
+  
+    .flex {
+      flex-direction: column;
+    }
+  
+    .min-h-screen {
+      min-height: auto; 
+    }
+
+    .text-center {
+      font-size: 14px;
+    }
+  }
+  

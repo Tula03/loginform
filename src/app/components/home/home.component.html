@@ -1,0 +1,39 @@
+<nav class="navbar">
+  <ul>
+    <li><a href="#">dev.al</a></li>
+    <li>
+      <input 
+        type="number" 
+        [(ngModel)]="newSquares" 
+        placeholder="Add squares" 
+        class="input-field"
+      />
+      <button (click)="addSquares()">Add</button>
+    </li>
+    <li>
+      <input 
+        type="number" 
+        [(ngModel)]="squaresToDelete" 
+        placeholder="Delete squares" 
+        class="input-field"
+      />
+      <button (click)="deleteSquares()">Delete</button>
+    </li>
+    <li><button (click)="logout()">Logout</button></li>
+    <li>
+      <button (click)="resetPage()">Reset</button>
+    </li>
+    
+  </ul>
+</nav>
+
+<!-- Grid Container -->
+<div class="grid-container">
+  <div 
+    *ngFor="let square of grid; let i = index" 
+    class="grid-item" 
+    [class.selected]="selectedSquares.has(i)"
+    (click)="selectSquare(i, $event)"
+  >
+  </div>
+</div>
